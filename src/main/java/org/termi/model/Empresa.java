@@ -13,6 +13,12 @@ public class Empresa {
         this.cif = cif;
         this.departamentos = departamentos;
     }
+    public void showInfoEmpresa(){
+        System.out.println("Nombre " + name + " cif " + cif);
+        for (int i = 0; i < departamentos.length; i++) {
+            System.out.println(departamentos[i]);
+        }
+    }
 
     public String getCif() {
         return cif;
