@@ -20,6 +20,15 @@ public class Empresa {
         }
     }
 
+    public Departamento findDepartamento(String name){
+        for (var departamento: departamentos){
+            if (departamento.getName().equals(name)){
+                return departamento;
+            }
+        }
+        return null;
+    }
+
     public String getCif() {
         return cif;
     }
