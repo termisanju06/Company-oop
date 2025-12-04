@@ -11,13 +11,11 @@ import org.termi.readers.ReaderEmpresa;
 import java.util.Scanner;
 
 public class CompanyApp {
-    private final Scanner scanner;
     private final ReaderDepartamento readerDepartamento;
     private final ReaderEmpresa readerEmpresa;
     private final ReaderEmpleado readerEmpleado;
 
-    public CompanyApp(Scanner scanner, ReaderDepartamento readerDepartamento, ReaderEmpresa readerEmpresa, ReaderEmpleado readerEmpleado) {
-        this.scanner = scanner;
+    public CompanyApp(ReaderDepartamento readerDepartamento, ReaderEmpresa readerEmpresa, ReaderEmpleado readerEmpleado) {
         this.readerDepartamento = readerDepartamento;
         this.readerEmpresa = readerEmpresa;
         this.readerEmpleado = readerEmpleado;
