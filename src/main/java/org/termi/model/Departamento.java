@@ -5,13 +5,13 @@ import java.util.Objects;
 
 public class Departamento {
     private String name;
-    private String presupuesto;
-    private Empleado[] Empleado;
+    private int presupuesto;
+    private Empleado[] empleados;
 
-    public Departamento(String name, String presupuesto, Empleado[] empleado) {
+    public Departamento(String name, int presupuesto, Empleado[] empleados) {
         this.name = name;
         this.presupuesto = presupuesto;
-        Empleado = empleado;
+        this.empleados = empleados;
     }
 
     public String getName() {
@@ -22,32 +22,32 @@ public class Departamento {
         this.name = name;
     }
 
-    public String getPresupuesto() {
+    public int getPresupuesto() {
         return presupuesto;
     }
 
-    public void setPresupuesto(String presupuesto) {
+    public void setPresupuesto(int presupuesto) {
         this.presupuesto = presupuesto;
     }
 
-    public Empleado[] getEmpleado() {
-        return Empleado;
+    public Empleado[] getEmpleados() {
+        return empleados;
     }
 
-    public void setEmpleado(Empleado[] empleado) {
-        Empleado = empleado;
+    public void setEmpleados(Empleado[] empleados) {
+        this.empleados = empleados;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Departamento that = (Departamento) o;
-        return Objects.equals(name, that.name) && Objects.equals(presupuesto, that.presupuesto) && Objects.deepEquals(Empleado, that.Empleado);
+        return Objects.equals(name, that.name) && Objects.equals(presupuesto, that.presupuesto) && Objects.deepEquals(empleados, that.empleados);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, presupuesto, Arrays.hashCode(Empleado));
+        return Objects.hash(name, presupuesto, Arrays.hashCode(empleados));
     }
 
     @Override
@@ -55,7 +55,7 @@ public class Departamento {
         return "Departamento{" +
                 "name='" + name + '\'' +
                 ", presupuesto='" + presupuesto + '\'' +
-                ", Empleado=" + Arrays.toString(Empleado) +
+                ", Empleado=" + Arrays.toString(empleados) +
                 '}';
     }
 }
