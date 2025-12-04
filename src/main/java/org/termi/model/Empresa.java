@@ -20,7 +20,7 @@ public class Empresa {
         }
     }
 
-    public Departamento findDepartamento(String name){
+    public Departamento findDepartamentoName(String name){
         for (var departamento: departamentos){
             if (departamento.getName().equals(name)){
                 return departamento;

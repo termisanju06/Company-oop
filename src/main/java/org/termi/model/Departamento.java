@@ -14,6 +14,23 @@ public class Departamento {
         this.empleados = empleados;
     }
 
+    public void showInfoDepartamento(){
+        System.out.println("Nombre " + name + " presupuesto " + presupuesto);
+        for (int i = 0; i < empleados.length; i++) {
+            System.out.println(empleados[i]);
+        }
+    }
+
+    public Empleado findEmpleadoNif(String nif){
+        for (var empleado: empleados){
+            if (empleado.getNif().equals(nif)){
+                return empleado;
+            }
+        }
+        return null;
+    }
+
+
 
     public String getName() {
         return name;

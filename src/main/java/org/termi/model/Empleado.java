@@ -15,6 +15,11 @@ public class Empleado {
         this.puesto = puesto;
     }
 
+    public void showInfoeEmpleado(){
+        System.out.println("nombre " + name + " apellido " + surname);
+        System.out.println("nif " + nif + " puesto " + puesto);
+    }
+
     public String getName() {
         return name;
     }
