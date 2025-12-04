@@ -1,6 +1,5 @@
 package org.termi;
 
-import org.termi.model.Empresa;
 import org.termi.readers.ReaderDepartamento;
 import org.termi.readers.ReaderEmpleado;
 import org.termi.readers.ReaderEmpresa;
