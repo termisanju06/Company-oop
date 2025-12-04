@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class ReaderEmpleado {
     private final Scanner scanner;
-    private final ReaderEmpleado readerEmpleado;
 
-    public ReaderEmpleado(Scanner scanner, ReaderEmpleado readerEmpleado) {
+
+    public ReaderEmpleado(Scanner scanner) {
         this.scanner = scanner;
-        this.readerEmpleado = readerEmpleado;
+
     }
 
     public Empleado read() {
