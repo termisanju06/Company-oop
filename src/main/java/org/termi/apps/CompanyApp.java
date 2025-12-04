@@ -25,8 +25,8 @@ public class CompanyApp {
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
-        Departamento departamento = readerDepartamento.read();
         Empresa empresa = readerEmpresa.read();
+        Departamento departamento = readerDepartamento.read();
         Empleado empleado = readerEmpleado.read();
 
         menu();
