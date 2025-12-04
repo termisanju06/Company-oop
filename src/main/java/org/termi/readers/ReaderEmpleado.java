@@ -5,26 +5,26 @@ import org.termi.model.Empleado;
 import java.util.Scanner;
 
 public class ReaderEmpleado {
-    private final Scanner sc;
+    private final Scanner scanner;
     private final ReaderEmpleado readerEmpleado;
 
-    public ReaderEmpleado(Scanner sc, ReaderEmpleado readerEmpleado) {
-        this.sc = sc;
+    public ReaderEmpleado(Scanner scanner, ReaderEmpleado readerEmpleado) {
+        this.scanner = scanner;
         this.readerEmpleado = readerEmpleado;
     }
 
     public Empleado read() {
         System.out.println("Dame tu nombre empleado");
-        String name = sc.nextLine();
+        String name = scanner.nextLine();
 
         System.out.println("Dame tu apellido empleado");
-        String surname = sc.nextLine();
+        String surname = scanner.nextLine();
 
         System.out.println("Dime tu nif empleado");
-        String nif = sc.nextLine();
+        String nif = scanner.nextLine();
 
         System.out.println("Dime tu puesto empleado");
-        String puesto = sc.nextLine();
+        String puesto = scanner.nextLine();
 
 
         return new Empleado(name, surname, nif, puesto);
