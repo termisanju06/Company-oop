@@ -57,7 +57,7 @@ public class CompanyApp {
 
                     if (empresa.hasDepartment(name) && empresa.hasEmpleadoNif(nif)) {
                         empresa.showInfoEmpleadoEmpresaNif(nif, name);
-                    } else if (nif == null) {
+                    } else if (name == null || nif == null) {
                         System.out.println("El nombre no coincide o no se encuentra el empleado de departamento");
                     } else {
                         System.out.println("Error inesperado");
