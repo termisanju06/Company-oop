@@ -41,7 +41,7 @@ public class CompanyApp {
         System.out.println("Dame el nombre de un departamento");
         String name = scanner.nextLine();
 
-        if (company.findDepartamentoName(name).getName().equals(name)) {
+        if (company.hasDepartment(name)) {
             System.out.println("Dame el nif de un empleado en ese departamento");
             String nif = scanner.nextLine();
 
@@ -52,9 +52,6 @@ public class CompanyApp {
             } else {
                 System.out.println("Error inesperado");
             }
-
-        } else if (name == null) {
-            System.out.println("El nombre de departamento no coincide o no existe");
         } else {
             System.out.println("Error inesperado");
         }
