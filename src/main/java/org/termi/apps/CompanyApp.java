@@ -34,7 +34,6 @@ public class CompanyApp {
                 } else {
                     System.out.println("El nombre no coincide o no existe");
                 }
-
             }
             if (a == 2) {
                 System.out.println("Dame el nombre de un departamento");
@@ -71,7 +70,7 @@ public class CompanyApp {
                 }
             }
 
-        } while (a == 4);
+        } while (a != 4);
 
     }
 
