@@ -39,7 +39,9 @@ public class Empresa {
     }
 
     public void showInfoDepartamentoEmpresa(){
-        findDepartamentoName(name).showInfoDepartamento();
+        for (var departamento: departamentos){
+            departamento.showInfoDepartamento();
+        }
     }
 
 
