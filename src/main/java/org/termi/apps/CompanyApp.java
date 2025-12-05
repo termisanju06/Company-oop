@@ -1,11 +1,7 @@
 package org.termi.apps;
 
 
-import org.termi.model.Departamento;
-import org.termi.model.Empleado;
 import org.termi.model.Empresa;
-import org.termi.readers.ReaderDepartamento;
-import org.termi.readers.ReaderEmpleado;
 import org.termi.readers.ReaderEmpresa;
 
 import java.util.Scanner;
