@@ -51,12 +51,13 @@ public class Empresa {
         findDepartamentoName(name).showInfoDepartamento();
     }
 
-    public void showEmpleadosDepartamento(){
+    public void showEmpleadosDepartamento(String name){
         for (var departamento: departamentos){
-            departamento.showEmpleados();
+            if (departamento.getName().equals(name)){
+                departamento.showEmpleados();
+            }
         }
     }
-
 
     public void showInfoEmpleadoEmpresaNif(String nif, String name){
         findDepartamentoName(name).findEmpleadoNif(nif).showInfoeEmpleado();

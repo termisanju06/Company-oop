@@ -40,7 +40,7 @@ public class CompanyApp {
                 String name = scanner.nextLine();
 
                 if (empresa.hasDepartment(name)) {
-                    empresa.showEmpleadosDepartamento();
+                    empresa.showEmpleadosDepartamento(name);
                 } else if (name == null) {
                     System.out.println("El nombre no coincide o no existe");
                 } else {
@@ -57,7 +57,7 @@ public class CompanyApp {
 
                     if (empresa.hasDepartment(name) && empresa.hasEmpleadoNif(nif)) {
                         empresa.showInfoEmpleadoEmpresaNif(nif, name);
-                    } else if (name == null || nif == null) {
+                    } else if (nif == null) {
                         System.out.println("El nombre no coincide o no se encuentra el empleado de departamento");
                     } else {
                         System.out.println("Error inesperado");
