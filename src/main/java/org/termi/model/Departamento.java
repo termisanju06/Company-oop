@@ -30,6 +30,24 @@ public class Departamento {
         return null;
     }
 
+    public Empleado findEmpleadoName(String name){
+        for (var empleado: empleados){
+            if (empleado.getName().equals(name)){
+                return empleado;
+            }
+        }
+        return null;
+    }
+
+
+    public void showInfoEmpleadoDepartamento(String name){
+        for (var empleado: empleados){
+            if (findEmpleadoName(name).getName().equals(name)){
+                empleado.showInfoeEmpleado();
+            }
+        }
+    }
+
 
 
     public String getName() {

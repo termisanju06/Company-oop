@@ -15,7 +15,7 @@ public class CompanyAppMain {
             ReaderEmpleado readerEmpleado = new ReaderEmpleado(scanner);
             ReaderDepartamento readerDepartamento = new ReaderDepartamento(scanner, readerEmpleado);
             ReaderEmpresa readerEmpresa = new ReaderEmpresa(scanner, readerDepartamento);
-            CompanyApp companyApp = new CompanyApp(readerDepartamento,readerEmpresa,readerEmpleado);
+            CompanyApp companyApp = new CompanyApp(readerEmpresa);
 
             companyApp.run();
 
