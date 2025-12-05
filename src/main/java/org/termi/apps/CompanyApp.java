@@ -61,7 +61,14 @@ public class CompanyApp {
         System.out.println("Dame el nombre de un departamento");
         String name = scanner.nextLine();
 
-        if (company.hasDepartment(name)) {
+        if (!company.hasDepartment(name)) {
+            do {
+                System.out.println("Dame un nombre valido");
+                name = scanner.nextLine();
+            } while (!company.hasDepartment(name));
+            company.showEmpleadosDepartamento(name);
+            
+        } else if (company.hasDepartment(name)) {
             company.showEmpleadosDepartamento(name);
         } else if (name == null) {
             System.out.println("El nombre no coincide o no existe");
@@ -73,8 +80,13 @@ public class CompanyApp {
     private static void opcion1(Scanner scanner, Company company) {
         System.out.println("Dame el nombre de un departamento");
         String name = scanner.nextLine();
-
-        if (company.hasDepartment(name)) {
+        if (!company.hasDepartment(name)){
+            do {
+                System.out.println("Dame un nombre valido");
+                name = scanner.nextLine();
+            } while (!company.hasDepartment(name));
+            company.showInfoDepartamentoEmpresa(name);
+        } else if (company.hasDepartment(name)) {
             company.showInfoDepartamentoEmpresa(name);
         } else {
             System.out.println("El nombre no coincide o no existe");
