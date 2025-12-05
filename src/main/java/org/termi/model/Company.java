@@ -3,25 +3,25 @@ package org.termi.model;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Empresa {
+public class Company {
     private String name;
     private String cif;
-    private Departamento[] departamentos;
+    private Department[] department;
 
-    public Empresa(String name, String cif, Departamento[] departamentos) {
+    public Company(String name, String cif, Department[] department) {
         this.name = name;
         this.cif = cif;
-        this.departamentos = departamentos;
+        this.department = department;
     }
     public void showInfoEmpresa(){
         System.out.println("Nombre " + name + " cif " + cif);
-        for (int i = 0; i < departamentos.length; i++) {
-            System.out.println(departamentos[i]);
+        for (int i = 0; i < department.length; i++) {
+            System.out.println(department[i]);
         }
     }
 
-    public Departamento findDepartamentoName(String name){
-        for (var departamento: departamentos){
+    public Department findDepartamentoName(String name){
+        for (var departamento: department){
             if (departamento.getName().equals(name)){
                 return departamento;
             }
@@ -30,7 +30,7 @@ public class Empresa {
     }
 
     public boolean hasDepartment(String name){
-        for (var departamento: departamentos){
+        for (var departamento: department){
             if (departamento.getName().equals(name)){
                 return true;
             }
@@ -39,7 +39,7 @@ public class Empresa {
     }
 
     public boolean hasEmpleadoNif(String nif){
-        for (var departamento: departamentos){
+        for (var departamento: department){
             if (departamento.hasEmpleadoNif(nif)){
                 return true;
             }
@@ -52,7 +52,7 @@ public class Empresa {
     }
 
     public void showEmpleadosDepartamento(String name){
-        for (var departamento: departamentos){
+        for (var departamento: department){
             if (departamento.getName().equals(name)){
                 departamento.showEmpleados();
             }
@@ -73,12 +73,12 @@ public class Empresa {
         this.cif = cif;
     }
 
-    public Departamento[] getDepartamentos() {
-        return departamentos;
+    public Department[] getDepartment() {
+        return department;
     }
 
-    public void setDepartamentos(Departamento[] departamentos) {
-        this.departamentos = departamentos;
+    public void setDepartment(Department[] department) {
+        this.department = department;
     }
 
     public String getName() {
@@ -92,13 +92,13 @@ public class Empresa {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Empresa empresa = (Empresa) o;
-        return Objects.equals(name, empresa.name) && Objects.equals(cif, empresa.cif) && Objects.deepEquals(departamentos, empresa.departamentos);
+        Company company = (Company) o;
+        return Objects.equals(name, company.name) && Objects.equals(cif, company.cif) && Objects.deepEquals(department, company.department);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, cif, Arrays.hashCode(departamentos));
+        return Objects.hash(name, cif, Arrays.hashCode(department));
     }
 
     @Override
@@ -106,7 +106,7 @@ public class Empresa {
         return "Empresa{" +
                 "name='" + name + '\'' +
                 ", cif='" + cif + '\'' +
-                ", departamentos=" + Arrays.toString(departamentos) +
+                ", departamentos=" + Arrays.toString(department) +
                 '}';
     }
 }

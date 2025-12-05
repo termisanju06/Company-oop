@@ -2,22 +2,22 @@ package org.termi.model;
 
 import java.util.Objects;
 
-public class Empleado {
+public class Employes {
     private String name;
     private String surname;
     private String nif;
-    private String puesto;
+    private String position;
 
-    public Empleado(String name, String surname, String nif, String puesto) {
+    public Employes(String name, String surname, String nif, String position) {
         this.name = name;
         this.surname = surname;
         this.nif = nif;
-        this.puesto = puesto;
+        this.position = position;
     }
 
     public void showInfoeEmpleado(){
         System.out.println("nombre " + name + " apellido " + surname);
-        System.out.println("nif " + nif + " puesto " + puesto);
+        System.out.println("nif " + nif + " puesto " + position);
     }
 
     public String getName() {
@@ -44,24 +44,24 @@ public class Empleado {
         this.nif = nif;
     }
 
-    public String getPuesto() {
-        return puesto;
+    public String getPosition() {
+        return position;
     }
 
-    public void setPuesto(String puesto) {
-        this.puesto = puesto;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Empleado empleado = (Empleado) o;
-        return Objects.equals(name, empleado.name) && Objects.equals(surname, empleado.surname) && Objects.equals(nif, empleado.nif) && Objects.equals(puesto, empleado.puesto);
+        Employes employes = (Employes) o;
+        return Objects.equals(name, employes.name) && Objects.equals(surname, employes.surname) && Objects.equals(nif, employes.nif) && Objects.equals(position, employes.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, nif, puesto);
+        return Objects.hash(name, surname, nif, position);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class Empleado {
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", nif='" + nif + '\'' +
-                ", puesto='" + puesto + '\'' +
+                ", puesto='" + position + '\'' +
                 '}';
     }
 }

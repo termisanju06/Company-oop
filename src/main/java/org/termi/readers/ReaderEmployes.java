@@ -1,19 +1,19 @@
 package org.termi.readers;
 
-import org.termi.model.Empleado;
+import org.termi.model.Employes;
 
 import java.util.Scanner;
 
-public class ReaderEmpleado {
+public class ReaderEmployes {
     private final Scanner scanner;
 
 
-    public ReaderEmpleado(Scanner scanner) {
+    public ReaderEmployes(Scanner scanner) {
         this.scanner = scanner;
 
     }
 
-    public Empleado read() {
+    public Employes read() {
         System.out.println("Dame tu nombre empleado");
         String name = scanner.nextLine();
 
@@ -27,6 +27,6 @@ public class ReaderEmpleado {
         String puesto = scanner.nextLine();
 
 
-        return new Empleado(name, surname, nif, puesto);
+        return new Employes(name, surname, nif, puesto);
     }
 }

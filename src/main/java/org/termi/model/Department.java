@@ -3,26 +3,26 @@ package org.termi.model;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Departamento {
+public class Department {
     private String name;
     private int presupuesto;
-    private Empleado[] empleados;
+    private Employes[] employes;
 
-    public Departamento(String name, int presupuesto, Empleado[] empleados) {
+    public Department(String name, int presupuesto, Employes[] employes) {
         this.name = name;
         this.presupuesto = presupuesto;
-        this.empleados = empleados;
+        this.employes = employes;
     }
 
     public void showInfoDepartamento(){
         System.out.println("Nombre " + name + " presupuesto " + presupuesto);
-        for (int i = 0; i < empleados.length; i++) {
-            System.out.println(empleados[i]);
+        for (int i = 0; i < employes.length; i++) {
+            System.out.println(employes[i]);
         }
     }
 
-    public Empleado findEmpleadoNif(String nif){
-        for (var empleado: empleados){
+    public Employes findEmpleadoNif(String nif){
+        for (var empleado: employes){
             if (empleado.getNif().equals(nif)){
                 return empleado;
             }
@@ -31,7 +31,7 @@ public class Departamento {
     }
 
     public boolean hasEmpleadoNif(String nif){
-        for (var empleado: empleados){
+        for (var empleado: employes){
             if (empleado.getNif().equals(nif)){
                 return true;
             }
@@ -40,7 +40,7 @@ public class Departamento {
     }
 
     public void showEmpleados(){
-        for (var empleados: empleados){
+        for (var empleados: employes){
             empleados.showInfoeEmpleado();
         }
     }
@@ -61,24 +61,24 @@ public class Departamento {
         this.presupuesto = presupuesto;
     }
 
-    public Empleado[] getEmpleados() {
-        return empleados;
+    public Employes[] getEmployes() {
+        return employes;
     }
 
-    public void setEmpleados(Empleado[] empleados) {
-        this.empleados = empleados;
+    public void setEmployes(Employes[] employes) {
+        this.employes = employes;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Departamento that = (Departamento) o;
-        return Objects.equals(name, that.name) && Objects.equals(presupuesto, that.presupuesto) && Objects.deepEquals(empleados, that.empleados);
+        Department that = (Department) o;
+        return Objects.equals(name, that.name) && Objects.equals(presupuesto, that.presupuesto) && Objects.deepEquals(employes, that.employes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, presupuesto, Arrays.hashCode(empleados));
+        return Objects.hash(name, presupuesto, Arrays.hashCode(employes));
     }
 
     @Override
@@ -86,7 +86,7 @@ public class Departamento {
         return "Departamento{" +
                 "name='" + name + '\'' +
                 ", presupuesto='" + presupuesto + '\'' +
-                ", Empleado=" + Arrays.toString(empleados) +
+                ", Empleado=" + Arrays.toString(employes) +
                 '}';
     }
 }

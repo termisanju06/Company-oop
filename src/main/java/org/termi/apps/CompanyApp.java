@@ -1,23 +1,23 @@
 package org.termi.apps;
 
 
-import org.termi.model.Empresa;
-import org.termi.readers.ReaderEmpresa;
+import org.termi.model.Company;
+import org.termi.readers.ReaderCompany;
 
 import java.util.Scanner;
 
 public class CompanyApp {
-    private final ReaderEmpresa readerEmpresa;
+    private final ReaderCompany readerCompany;
 
-    public CompanyApp(ReaderEmpresa readerEmpresa) {
+    public CompanyApp(ReaderCompany readerCompany) {
 
-        this.readerEmpresa = readerEmpresa;
+        this.readerCompany = readerCompany;
 
     }
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
-        Empresa empresa = readerEmpresa.read();
+        Company company = readerCompany.read();
 
         int a = 0;
         do {
@@ -25,28 +25,28 @@ public class CompanyApp {
             a = scanner.nextInt();
             scanner.nextLine();
             if (a == 1) {
-                opcion1(scanner, empresa);
+                opcion1(scanner, company);
             }
             if (a == 2) {
-                opcion2(scanner, empresa);
+                opcion2(scanner, company);
             }
             if (a == 3) {
-                opcion3(scanner, empresa);
+                opcion3(scanner, company);
             }
         } while (a != 4);
 
     }
 
-    private static void opcion3(Scanner scanner, Empresa empresa) {
+    private static void opcion3(Scanner scanner, Company company) {
         System.out.println("Dame el nombre de un departamento");
         String name = scanner.nextLine();
 
-        if (empresa.findDepartamentoName(name).getName().equals(name)) {
+        if (company.findDepartamentoName(name).getName().equals(name)) {
             System.out.println("Dame el nif de un empleado en ese departamento");
             String nif = scanner.nextLine();
 
-            if (empresa.hasDepartment(name) && empresa.hasEmpleadoNif(nif)) {
-                empresa.showInfoEmpleadoEmpresaNif(nif, name);
+            if (company.hasDepartment(name) && company.hasEmpleadoNif(nif)) {
+                company.showInfoEmpleadoEmpresaNif(nif, name);
             } else if (nif == null) {
                 System.out.println("El nombre no coincide o no se encuentra el empleado de departamento");
             } else {
@@ -60,12 +60,12 @@ public class CompanyApp {
         }
     }
 
-    private static void opcion2(Scanner scanner, Empresa empresa) {
+    private static void opcion2(Scanner scanner, Company company) {
         System.out.println("Dame el nombre de un departamento");
         String name = scanner.nextLine();
 
-        if (empresa.hasDepartment(name)) {
-            empresa.showEmpleadosDepartamento(name);
+        if (company.hasDepartment(name)) {
+            company.showEmpleadosDepartamento(name);
         } else if (name == null) {
             System.out.println("El nombre no coincide o no existe");
         } else {
@@ -73,12 +73,12 @@ public class CompanyApp {
         }
     }
 
-    private static void opcion1(Scanner scanner, Empresa empresa) {
+    private static void opcion1(Scanner scanner, Company company) {
         System.out.println("Dame el nombre de un departamento");
         String name = scanner.nextLine();
 
-        if (empresa.hasDepartment(name)) {
-            empresa.showInfoDepartamentoEmpresa(name);
+        if (company.hasDepartment(name)) {
+            company.showInfoDepartamentoEmpresa(name);
         } else {
             System.out.println("El nombre no coincide o no existe");
         }

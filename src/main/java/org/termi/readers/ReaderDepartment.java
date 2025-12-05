@@ -1,19 +1,19 @@
 package org.termi.readers;
 
-import org.termi.model.Departamento;
-import org.termi.model.Empleado;
+import org.termi.model.Department;
+import org.termi.model.Employes;
 
 import java.util.Scanner;
 
-public class ReaderDepartamento {
+public class ReaderDepartment {
     private final Scanner scanner;
-    private final ReaderEmpleado readerEmpleado;
+    private final ReaderEmployes readerEmployes;
 
-    public ReaderDepartamento(Scanner scanner, ReaderEmpleado readerEmpleado) {
+    public ReaderDepartment(Scanner scanner, ReaderEmployes readerEmployes) {
         this.scanner = scanner;
-        this.readerEmpleado = readerEmpleado;
+        this.readerEmployes = readerEmployes;
     }
-    public Departamento read(){
+    public Department read(){
         System.out.println("Dame tu nombre de departamento");
         String name = scanner.nextLine();
 
@@ -24,13 +24,13 @@ public class ReaderDepartamento {
         System.out.println("Dime cuantos empleados hay");
         int a = scanner.nextInt();
         scanner.nextLine();
-        Empleado[] empleados = new Empleado[a];
+        Employes[] employes = new Employes[a];
 
         for (int i = 0; i < a; i++) {
-            empleados[i] = readerEmpleado.read();
+            employes[i] = readerEmployes.read();
         }
 
-        return new Departamento(name,presupuesto,empleados);
+        return new Department(name,presupuesto, employes);
     }
 }
 
