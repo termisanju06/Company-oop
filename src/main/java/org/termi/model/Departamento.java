@@ -30,25 +30,20 @@ public class Departamento {
         return null;
     }
 
-    public Empleado findEmpleadoName(String name){
+    public boolean hasEmpleadoNif(String nif){
         for (var empleado: empleados){
-            if (empleado.getName().equals(name)){
-                return empleado;
+            if (empleado.getNif().equals(nif)){
+                return true;
             }
         }
-        return null;
+        return false;
     }
 
-
-    public void showInfoEmpleadoDepartamento(String name){
-        for (var empleado: empleados){
-            if (findEmpleadoName(name).getName().equals(name)){
-                empleado.showInfoeEmpleado();
-            }
+    public void showEmpleados(){
+        for (var empleados: empleados){
+            empleados.showInfoeEmpleado();
         }
     }
-
-
 
     public String getName() {
         return name;

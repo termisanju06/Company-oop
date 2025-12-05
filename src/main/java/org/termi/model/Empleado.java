@@ -8,10 +8,10 @@ public class Empleado {
     private String nif;
     private String puesto;
 
-    public Empleado(String name, String nif, String surname, String puesto) {
+    public Empleado(String name, String surname, String nif, String puesto) {
         this.name = name;
-        this.nif = nif;
         this.surname = surname;
+        this.nif = nif;
         this.puesto = puesto;
     }
 

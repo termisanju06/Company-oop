@@ -22,11 +22,7 @@ public class CompanyApp {
 
         int a = 0;
         do {
-            System.out.println("Dime un número del 1 al 4");
-            System.out.println("1. Nombre de departamento = mostrar sus datos");
-            System.out.println("2. Nombre de departamento = mostrar sus empleados");
-            System.out.println("3. Nombre de departamento + nif = mostrar datos del empleado del departamento indicado");
-            System.out.println("4. Adios");
+            menu();
             a = scanner.nextInt();
             scanner.nextLine();
             if (a == 1) {
@@ -34,7 +30,7 @@ public class CompanyApp {
                 String name = scanner.nextLine();
 
                 if (empresa.hasDepartment(name)) {
-                    empresa.showInfoDepartamentoEmpresa();
+                    empresa.showInfoDepartamentoEmpresa(name);
                 } else {
                     System.out.println("El nombre no coincide o no existe");
                 }
@@ -45,7 +41,7 @@ public class CompanyApp {
                 String name = scanner.nextLine();
 
                 if (empresa.hasDepartment(name)) {
-                    empresa.findDepartamentoName(name).showInfoEmpleadoDepartamento(name);
+                    empresa.showEmpleadosDepartamento();
                 } else if (name == null) {
                     System.out.println("El nombre no coincide o no existe");
                 } else {
@@ -61,7 +57,7 @@ public class CompanyApp {
                     String nif = scanner.nextLine();
 
                     if (empresa.hasDepartment(name) && empresa.hasEmpleadoNif(nif)) {
-                        empresa.showInfoEmpleadoEmpresaNif(nif);
+                        empresa.showInfoEmpleadoEmpresaNif(nif, name);
                     } else if (nif == null) {
                         System.out.println("El nombre no coincide o no se encuentra el empleado de departamento");
                     } else {
@@ -78,4 +74,13 @@ public class CompanyApp {
         } while (a == 4);
 
     }
+
+    private static void menu() {
+        System.out.println("Dime un número del 1 al 4");
+        System.out.println("1. Mostrar datos de un departamento");
+        System.out.println("2. Mostrar empleados de un departamento");
+        System.out.println("3. Mostrar un empleado concreto a traves de su departamento y nif");
+        System.out.println("4. Adios");
+    }
+
 }

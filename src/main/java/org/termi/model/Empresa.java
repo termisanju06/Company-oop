@@ -38,25 +38,30 @@ public class Empresa {
         return false;
     }
 
-    public void showInfoDepartamentoEmpresa(){
-        for (var departamento: departamentos){
-            departamento.showInfoDepartamento();
-        }
-    }
-
-
-    public void showInfoEmpleadoEmpresaNif(String nif){
-        findDepartamentoName(name).findEmpleadoNif(nif).showInfoeEmpleado();
-    }
-
     public boolean hasEmpleadoNif(String nif){
         for (var departamento: departamentos){
-            if (departamento.findEmpleadoNif(nif).getNif().equals(nif)){
+            if (departamento.hasEmpleadoNif(nif)){
                 return true;
             }
         }
         return false;
     }
+
+    public void showInfoDepartamentoEmpresa(String name){
+        findDepartamentoName(name).showInfoDepartamento();
+    }
+
+    public void showEmpleadosDepartamento(){
+        for (var departamento: departamentos){
+            departamento.showEmpleados();
+        }
+    }
+
+
+    public void showInfoEmpleadoEmpresaNif(String nif, String name){
+        findDepartamentoName(name).findEmpleadoNif(nif).showInfoeEmpleado();
+    }
+
 
 
     public String getCif() {
