@@ -40,18 +40,45 @@ public class CompanyApp {
     private static void opcion3(Scanner scanner, Company company) {
         System.out.println("Dame el nombre de un departamento");
         String name = scanner.nextLine();
-
-        if (company.hasDepartment(name)) {
+        if (!company.hasDepartment(name)) {
+            name = dowhilenamehasdeparment(scanner, company);
             System.out.println("Dame el nif de un empleado en ese departamento");
             String nif = scanner.nextLine();
 
-            if (company.hasDepartment(name) && company.hasEmpleadoNif(nif)) {
-                company.showInfoEmpleadoEmpresaNif(nif, name);
-            } else if (nif == null) {
-                System.out.println("El nombre no coincide o no se encuentra el empleado de departamento");
-            } else {
-                System.out.println("Error inesperado");
-            }
+            metodonif(scanner, company, nif, name);
+
+        } else if (company.hasDepartment(name)) {
+            System.out.println("Dame el nif de un empleado en ese departamento");
+            String nif = scanner.nextLine();
+
+            metodonif(scanner, company, nif, name);
+
+        } else {
+            System.out.println("Error inesperado");
+        }
+
+    }
+
+    private static String dowhilenamehasdeparment(Scanner scanner, Company company) {
+        String name;
+        do {
+            System.out.println("Dame un nombre de departamento válido");
+            name = scanner.nextLine();
+        } while (!company.hasDepartment(name));
+        return name;
+    }
+
+    private static void metodonif(Scanner scanner, Company company, String nif, String name) {
+        if (!company.hasEmpleadoNif(nif) && company.hasDepartment(name)) {
+            do {
+                System.out.println("Dame un nif válido");
+                nif = scanner.nextLine();
+            } while (!company.hasEmpleadoNif(nif));
+            company.showInfoEmpleadoEmpresaNif(nif, name);
+        } else if (company.hasDepartment(name) && company.hasEmpleadoNif(nif)) {
+            company.showInfoEmpleadoEmpresaNif(nif, name);
+        } else if (nif == null) {
+            System.out.println("El nombre no coincide o no se encuentra el empleado de departamento");
         } else {
             System.out.println("Error inesperado");
         }
@@ -62,12 +89,9 @@ public class CompanyApp {
         String name = scanner.nextLine();
 
         if (!company.hasDepartment(name)) {
-            do {
-                System.out.println("Dame un nombre valido");
-                name = scanner.nextLine();
-            } while (!company.hasDepartment(name));
+            name = dowhilenamehasdeparment(scanner, company);
             company.showEmpleadosDepartamento(name);
-            
+
         } else if (company.hasDepartment(name)) {
             company.showEmpleadosDepartamento(name);
         } else if (name == null) {
@@ -80,11 +104,8 @@ public class CompanyApp {
     private static void opcion1(Scanner scanner, Company company) {
         System.out.println("Dame el nombre de un departamento");
         String name = scanner.nextLine();
-        if (!company.hasDepartment(name)){
-            do {
-                System.out.println("Dame un nombre valido");
-                name = scanner.nextLine();
-            } while (!company.hasDepartment(name));
+        if (!company.hasDepartment(name)) {
+            name = dowhilenamehasdeparment(scanner, company);
             company.showInfoDepartamentoEmpresa(name);
         } else if (company.hasDepartment(name)) {
             company.showInfoDepartamentoEmpresa(name);
