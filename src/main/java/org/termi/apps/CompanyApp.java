@@ -19,59 +19,69 @@ public class CompanyApp {
         Scanner scanner = new Scanner(System.in);
         Empresa empresa = readerEmpresa.read();
 
-
         int a = 0;
         do {
             menu();
             a = scanner.nextInt();
             scanner.nextLine();
             if (a == 1) {
-                System.out.println("Dame el nombre de un departamento");
-                String name = scanner.nextLine();
-
-                if (empresa.hasDepartment(name)) {
-                    empresa.showInfoDepartamentoEmpresa(name);
-                } else {
-                    System.out.println("El nombre no coincide o no existe");
-                }
+                opcion1(scanner, empresa);
             }
             if (a == 2) {
-                System.out.println("Dame el nombre de un departamento");
-                String name = scanner.nextLine();
-
-                if (empresa.hasDepartment(name)) {
-                    empresa.showEmpleadosDepartamento(name);
-                } else if (name == null) {
-                    System.out.println("El nombre no coincide o no existe");
-                } else {
-                    System.out.println("Error inesperado");
-                }
+                opcion2(scanner, empresa);
             }
             if (a == 3) {
-                System.out.println("Dame el nombre de un departamento");
-                String name = scanner.nextLine();
-
-                if (empresa.findDepartamentoName(name).getName().equals(name)) {
-                    System.out.println("Dame el nif de un empleado en ese departamento");
-                    String nif = scanner.nextLine();
-
-                    if (empresa.hasDepartment(name) && empresa.hasEmpleadoNif(nif)) {
-                        empresa.showInfoEmpleadoEmpresaNif(nif, name);
-                    } else if (nif == null) {
-                        System.out.println("El nombre no coincide o no se encuentra el empleado de departamento");
-                    } else {
-                        System.out.println("Error inesperado");
-                    }
-
-                } else if (name == null) {
-                    System.out.println("El nombre de departamento no coincide o no existe");
-                } else {
-                    System.out.println("Error inesperado");
-                }
+                opcion3(scanner, empresa);
             }
-
         } while (a != 4);
 
+    }
+
+    private static void opcion3(Scanner scanner, Empresa empresa) {
+        System.out.println("Dame el nombre de un departamento");
+        String name = scanner.nextLine();
+
+        if (empresa.findDepartamentoName(name).getName().equals(name)) {
+            System.out.println("Dame el nif de un empleado en ese departamento");
+            String nif = scanner.nextLine();
+
+            if (empresa.hasDepartment(name) && empresa.hasEmpleadoNif(nif)) {
+                empresa.showInfoEmpleadoEmpresaNif(nif, name);
+            } else if (nif == null) {
+                System.out.println("El nombre no coincide o no se encuentra el empleado de departamento");
+            } else {
+                System.out.println("Error inesperado");
+            }
+
+        } else if (name == null) {
+            System.out.println("El nombre de departamento no coincide o no existe");
+        } else {
+            System.out.println("Error inesperado");
+        }
+    }
+
+    private static void opcion2(Scanner scanner, Empresa empresa) {
+        System.out.println("Dame el nombre de un departamento");
+        String name = scanner.nextLine();
+
+        if (empresa.hasDepartment(name)) {
+            empresa.showEmpleadosDepartamento(name);
+        } else if (name == null) {
+            System.out.println("El nombre no coincide o no existe");
+        } else {
+            System.out.println("Error inesperado");
+        }
+    }
+
+    private static void opcion1(Scanner scanner, Empresa empresa) {
+        System.out.println("Dame el nombre de un departamento");
+        String name = scanner.nextLine();
+
+        if (empresa.hasDepartment(name)) {
+            empresa.showInfoDepartamentoEmpresa(name);
+        } else {
+            System.out.println("El nombre no coincide o no existe");
+        }
     }
 
     private static void menu() {
